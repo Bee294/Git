@@ -55,23 +55,6 @@ function validateForm(){
     "Sở thích": sothich1 , sothich2, sothich3, sothich4,
 
   }
-  MEMBER_API ="https://music-i-like.herokuapp.com/api/v1/accounts";
-  var xhr = new XMLHttpRequest();
-  xhr.open("POST",MEMBER_API, true);
-  xhr.send(JSON.stringify(object));
   console.log(object);
-  xhr.onreadystatechange = function (){
-    if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200){
-      var responseObject = JSON.parse(xhr.responseText);
-      document.getElementById("total-msg").classList ="success-msg";
-      document.getElementById("total-msg").innerHTML ="Đăng ký thành công";
-    }else{
-      if(xhr.readyState=== XMLHttpRequest.DONE){
-        var responseObject = JSON.parse(xhr.responseText);
-        document.getElementById("total-msg").classList ="error-msg";
-        document.getElementById("total-msg").innerHTML =
-          responseObject.error[0].title + " " + responseObject.error[0].detail;
-      }
-    }
-  }
+
 }
